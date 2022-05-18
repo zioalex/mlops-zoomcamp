@@ -1,0 +1,9 @@
+https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning#mlops_level_2_cicd_pipeline_automation
+
+https://localstack.cloud/
+
+https://github.com/Qfl3x/mlops-zoomcamp/blob/main/week1/model.ipynb
+
+
+https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+
