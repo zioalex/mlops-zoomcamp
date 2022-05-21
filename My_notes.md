@@ -19,9 +19,6 @@ https://cschranz.medium.com/set-up-your-own-gpu-based-jupyterlab-e0d45fcacf43
 https://gdcoder.com/how-to-create-and-add-a-conda-environment-as-jupyter-kernel/
 # Other courses
 https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops
-# Info from the other users
-https://github.com/Qfl3x/mlops-zoomcamp/blob/main/week1/model.ipynb
-
 
 
 ## Week2
