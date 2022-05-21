@@ -13,6 +13,10 @@ https://www.youtube.com/watch?v=r94QjpX9vSE&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhE
 # MLOps Maturity level by Microsoft
 https://docs.microsoft.com/en-us/azure/architecture/example-scenario/mlops/mlops-maturity-model
 
+# How to use my GPU in Jupyter notebook and Docker
+https://cschranz.medium.com/set-up-your-own-gpu-based-jupyterlab-e0d45fcacf43
+# Other courses
+https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops
 # Info from the other users
 https://github.com/Qfl3x/mlops-zoomcamp/blob/main/week1/model.ipynb
 
