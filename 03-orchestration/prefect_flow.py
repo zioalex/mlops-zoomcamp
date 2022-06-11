@@ -1,5 +1,6 @@
 import pandas as pd
 import pickle
+from pendulum import date
 
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import LinearRegression, Lasso, Ridge
@@ -12,11 +13,14 @@ from hyperopt.pyll import scope
 
 import mlflow
 
-from prefect import flow, task
+from prefect import flow, task, get_run_logger
 from prefect.task_runners import SequentialTaskRunner
+from time import strftime,gmtime
+import datetime
 
 @task
 def read_dataframe(filename):
+
     df = pd.read_parquet(filename)
 
     df.lpep_dropoff_datetime = pd.to_datetime(df.lpep_dropoff_datetime)
@@ -36,9 +40,9 @@ def read_dataframe(filename):
 def add_features(df_train, df_val):
     # df_train = read_dataframe(train_path)
     # df_val = read_dataframe(val_path)
-
-    print(len(df_train))
-    print(len(df_val))
+    logger = get_run_logger("logger")
+    logger.info(len(df_train))
+    logger.info(len(df_val))
 
     df_train['PU_DO'] = df_train['PULocationID'] + '_' + df_train['DOLocationID']
     df_val['PU_DO'] = df_val['PULocationID'] + '_' + df_val['DOLocationID']
@@ -132,9 +136,43 @@ def train_best_model(train, valid, y_val, dv):
 
         mlflow.xgboost.log_model(booster, artifact_path="models_mlflow")
 
+@task
+def get_paths(date):
+    # https://pythonguides.com/convert-a-string-to-datetime-in-python/
+    # https://stackoverflow.com/questions/9724906/python-date-of-the-previous-month
+    logger = get_run_logger("logger")
+    
+    if date == None:
+        # train_time = strftime("%Y-%m-%d", gmtime())
+        # val_time
+        today = datetime.date.today()
+        first = today.replace(day=1)
+        lastMonth = first - datetime.timedelta(days=1)
+        val_date = lastMonth.strftime("%Y-%m")
+        first = lastMonth.replace(day=1)
+        lastMonth = first - datetime.timedelta(days=1)
+        train_date = lastMonth.strftime("%Y-%m")
+    else:
+        format = "%Y-%m-%d"
+        dt_object = datetime.datetime.strptime(date, format)
+        first = dt_object.replace(day=1)
+        lastMonth = first - datetime.timedelta(days=1)
+        val_date = lastMonth.strftime("%Y-%m")
+        first = lastMonth.replace(day=1)
+        lastMonth = first - datetime.timedelta(days=1)
+        train_date = lastMonth.strftime("%Y-%m")
+        
+    train_path: str="./data/green_tripdata_" + train_date + ".parquet"
+    val_path: str="./data/green_tripdata_" + val_date + ".parquet"
+    print(train_path, val_path)    
+    
+    return train_path, val_path
+
 @flow(task_runner=SequentialTaskRunner())
-def main(train_path: str="./data/green_tripdata_2021-01.parquet",
-        val_path: str="./data/green_tripdata_2021-02.parquet"):
+def main(date=None):
+    # , train_path: str="./data/green_tripdata_2021-01.parquet",
+        # val_path: str="./data/green_tripdata_2021-02.parquet"
+    train_path, val_path = get_paths(date).result()
     mlflow.set_tracking_uri("sqlite:///mlflow.db")
     mlflow.set_experiment("nyc-taxi-experiment")
     X_train = read_dataframe(train_path)
@@ -144,3 +182,5 @@ def main(train_path: str="./data/green_tripdata_2021-01.parquet",
     valid = xgb.DMatrix(X_val, label=y_val)
     train_model_search(train, valid, y_val)
     train_best_model(train, valid, y_val, dv)
+
+main(date="2021-08-15")

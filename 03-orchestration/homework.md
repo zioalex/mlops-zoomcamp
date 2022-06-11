@@ -57,7 +57,7 @@ python homework.py
 We want to bring this to workflow orchestration to add observability around it. The `main` function will be converted to a `flow` and the other functions will be `tasks`. After adding all of the decorators, there is actually one task that you will need to call `.result()` for inside the `flow` to get it to work. Which task is this?
 
 * `read_data`
-* `prepare_features`
+* `prepare_features` --> may be this? - add_features
 * `train_model`
 * `run_model`
 
@@ -119,6 +119,10 @@ The validation MSE is:
 * 11.837
 * 12.037
 * 12.237
+
+search model: validation-rmse:6.72371
+best_model: validation-rmse:6.75135
+rmse	6.764 from mlflow
 
 ## Q3. Saving the model and artifacts
 
