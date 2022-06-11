@@ -11,3 +11,6 @@ data/
 .venv
 venv
 .idea
+**/models/
+**/mlruns/
+**/prefect
