@@ -135,6 +135,7 @@ def train_best_model(train, valid, y_val, dv):
         mlflow.log_artifact("models/preprocessor.b", artifact_path="preprocessor")
 
         mlflow.xgboost.log_model(booster, artifact_path="models_mlflow")
+        return booster
 
 @task
 def get_paths(date):
@@ -180,7 +181,14 @@ def main(date=None):
     X_train, X_val, y_train, y_val, dv = add_features(X_train, X_val).result()
     train = xgb.DMatrix(X_train, label=y_train)
     valid = xgb.DMatrix(X_val, label=y_val)
-    train_model_search(train, valid, y_val)
-    train_best_model(train, valid, y_val, dv)
+    model_search = train_model_search(train, valid, y_val)
+    model_best = train_best_model(train, valid, y_val, dv)
+    
+    # with open('models/model_search-' + date + '.bin', 'wb') as f_out:
+    #     pickle.dump((dv, model_search), f_out)
+    with open('models/model-' + date + '.bin', 'wb') as f_out:
+        pickle.dump((dv, model_best), f_out)
+    with open('models/dv-' + date + '.b', 'wb') as f_out:
+        pickle.dump(dv, f_out)
 
-main(date="2021-08-15")
+main(date="2021-07-15")
