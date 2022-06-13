@@ -3,3 +3,14 @@ data/
 .bin
 **/*.pkl
 *.db
+
+*.parquet
+*.html
+*.csv
+
+.venv
+venv
+.idea
+**/models/
+**/mlruns/
+**/prefect
