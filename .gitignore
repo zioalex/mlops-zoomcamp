@@ -11,4 +11,6 @@ data/
 venv
 .idea
 **/*.pkl
+**/artifacts/*
+**/models/*
 
