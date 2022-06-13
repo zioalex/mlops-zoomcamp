@@ -60,3 +60,4 @@ Did you take notes? Add them here:
 * [Minimalist code notes from Anna V](https://github.com/annnvv/mlops_zoomcamp/blob/main/notes/module3_notes_prefect.md)
 * [Getting Started on Prefect 2.0 + Deploying worfklows for MLflow Staging by Ron Medina (Jupyter Book)](https://particle1331.github.io/inefficient-networks/notebooks/mlops/3-prefect/3-prefect.html)
 * Send a PR, add your notes above this line
+* [Quick start the homework with the previous setup](https://github.com/zioalex/mlops-zoomcamp/blob/main/03-orchestration/homework_quickstart.md)
