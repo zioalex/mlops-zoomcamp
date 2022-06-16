@@ -1,4 +1,4 @@
-#Model deployment
+# Model deployment
 
 - batch deployment or offline deployment - Not realtime 
 - Online deployment -  the model is always running
