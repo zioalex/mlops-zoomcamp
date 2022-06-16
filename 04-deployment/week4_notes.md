@@ -15,5 +15,6 @@ Batch mode is used to understand which user is going to churn. Based on this pre
 
 ## Web service
 I.E: Ride prediction service
+image.png
 
 ## Streaming
