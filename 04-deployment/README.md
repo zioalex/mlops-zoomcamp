@@ -53,14 +53,19 @@
 COMING SOON
 
 
-
-## 4.7 Homework
+## 4.7 Choosing the right way of deployment
 
 COMING SOON
+
+
+## 4.8 Homework
+
+More information here: [homework.md](homework.md)
 
 
 ## Notes
 
 Did you take notes? Add them here:
 
+* [Notes on model deployment (+ creating a modeling package) by Ron M.](https://particle1331.github.io/inefficient-networks/notebooks/mlops/04-deployment/notes.html)
 * Send a PR, add your notes above this line
