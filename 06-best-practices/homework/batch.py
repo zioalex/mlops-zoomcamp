@@ -19,8 +19,8 @@ def localstack_check():
     return options
 
 
-def read_data(filename):
-    df = pd.read_parquet(filename)
+def read_data(filename, options={}):
+    df = pd.read_parquet(filename, storage_options=options)
 
     return df
 
@@ -73,7 +73,8 @@ def main(year, month):
 
     options = localstack_check()
 
-    df = read_data(input_file)
+    df = read_data(input_file, options)
+    print(df.info())
     df = prepare_data(df, categorical)
     df["ride_id"] = f"{year:04d}/{month:02d}_" + df.index.astype("str")
 
@@ -82,6 +83,7 @@ def main(year, month):
     y_pred = lr.predict(X_val)
 
     print("predicted mean duration:", y_pred.mean())
+    print("predicted duration sum:", y_pred.sum())
 
     df_result = pd.DataFrame()
     df_result["ride_id"] = df["ride_id"]

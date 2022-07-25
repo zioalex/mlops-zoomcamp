@@ -23,6 +23,7 @@ black = "*"
 isort = "*"
 pre-commit = "*"
 pylint = "==2.14.4"
+terraform-local = "*"
 
 [requires]
 python_version = "3.9"
