@@ -1,10 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-from datetime import datetime
-
 import batch
-import pandas as pd
 
 
 def write_test_dataset_tos3(df, output_file):
@@ -20,35 +17,29 @@ def write_test_dataset_tos3(df, output_file):
     )
 
 
-def dt(hour, minute, second=0):
-    return datetime(2021, 1, 1, hour, minute, second)
-
-
-def test_dataset():
-    data = [
-        (None, None, dt(1, 2), dt(1, 10)),
-        (1, 1, dt(1, 2), dt(1, 10)),
-        (1, 1, dt(1, 2, 0), dt(1, 2, 50)),
-        (1, 1, dt(1, 2, 0), dt(2, 2, 1)),
-    ]
-
-    columns = ["PUlocationID", "DOlocationID", "pickup_datetime", "dropOff_datetime"]
-
-    df = pd.DataFrame(data, columns=columns)
-    return df
-
-
 year = 2021
 month = 1
 
-input_file = batch.get_input_path(year, month)
+# Write test data
 output_file = batch.get_output_path(year, month)
+test_df = batch.test_dataset()
+categorical = ["PUlocationID", "DOlocationID"]
+test_df_transformed = batch.prepare_data(test_df, categorical)
+write_test_dataset_tos3(test_df_transformed, output_file)
+#
 
-df_input = batch.read_data(input_file)
-test_df = test_dataset()
-write_test_dataset_tos3(test_df, output_file)
 
-print("test_DF", test_df.info())
+input_file = batch.get_input_path(year, month)
+options = batch.localstack_check()
+df_input = batch.read_data(input_file, options)
+
+
+print("test_DF", test_df_transformed.info())
 print("df_input", df_input.info())
 
-assert test_df.equals(df_input)
+print("test_DF", test_df_transformed)
+print("df_input", df_input)
+
+
+def test_integration():
+    assert test_df_transformed.equals(df_input)

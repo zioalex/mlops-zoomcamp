@@ -2,10 +2,10 @@ resource "aws_lambda_function" "kinesis_lambda" {
   function_name = var.lambda_function_name
   # This can also be any base image to bootstrap the lambda config, unrelated to your Inference service on ECR
   # which would be anyway updated regularly via a CI/CD pipeline
-  image_uri = var.image_uri   # required-argument
-
+  # image_uri = var.image_uri   # required-argument
+  filename ="../my-lambda-package.zip"
   package_type = "Zip" # "Image"
-  handler = "lambda_function.lambda_handler"
+  handler = "batch.lambda_handler"
   runtime = "python3.9"
   role          = aws_iam_role.iam_lambda.arn
   tracing_config {

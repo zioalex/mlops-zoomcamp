@@ -43,5 +43,5 @@ def main(year, month):
 Q2 - __init__.py
 Q3 - 4
 Q4 - --endpoint-url=http://localhost:4566
-Q5 - 3504 2021-01.parquet
-Q6 - 16.25
+Q5 - 3940 2021-01.parquet
+Q6 - 69.28869683240714

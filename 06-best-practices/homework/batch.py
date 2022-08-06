@@ -4,6 +4,7 @@
 import os
 import sys
 import pickle
+from datetime import datetime
 
 import pandas as pd
 
@@ -32,6 +33,24 @@ def save_data(df, output_file, options={}):
     print(f"save_data {result}")
 
 
+def dt(hour, minute, second=0):
+    return datetime(2021, 1, 1, hour, minute, second)
+
+
+def test_dataset():
+    data = [
+        (None, None, dt(1, 2), dt(1, 10)),
+        (1, 1, dt(1, 2), dt(1, 10)),
+        (1, 1, dt(1, 2, 0), dt(1, 2, 50)),
+        (1, 1, dt(1, 2, 0), dt(2, 2, 1)),
+    ]
+
+    columns = ['PUlocationID', 'DOlocationID', 'pickup_datetime', 'dropOff_datetime']
+    df = pd.DataFrame(data, columns=columns)
+
+    return df
+
+
 def prepare_data(df, categorical):
     df["duration"] = df.dropOff_datetime - df.pickup_datetime
     df["duration"] = df.duration.dt.total_seconds() / 60
@@ -56,6 +75,7 @@ def get_output_path(year, month):
 
 
 def main(year, month):
+    # pylint: disable=too-many-locals
     year = int(year)
     month = int(month)
 
@@ -70,6 +90,11 @@ def main(year, month):
     # input_file = f'https://raw.githubusercontent.com/alexeygrigorev/datasets/master/nyc-tlc/fhv/fhv_tripdata_{year:04d}-{month:02d}.parquet'
     # output_file = f's3://nyc-duration-prediction-alexey/taxi_type=fhv/year={year:04d}/month={month:02d}/predictions.parquet'
     # output_file = f'taxi_type=fhv_year={year:04d}_month={month:02d}.parquet'
+
+    ## Test DF
+    test_df = test_dataset()
+    test_df_transformed = prepare_data(test_df, categorical)
+    print("test_DF", test_df_transformed.info())
 
     options = localstack_check()
 
@@ -93,6 +118,14 @@ def main(year, month):
         output_file, engine="pyarrow", index=False, storage_options=options
     )
     save_data(df_result, output_file, options)
+    return y_pred.mean
+
+
+def lambda_handler(event, context):
+    # pylint: disable=unused-argument
+    prediction = main(sys.argv[1], sys.argv[2])
+    print(prediction)
+    return prediction
 
 
 if __name__ == "__main__":
