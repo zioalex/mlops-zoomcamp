@@ -1,3 +1,7 @@
 {
-  "makefile.extensionOutputFolder": "./.vscode"
+  "python.testing.pytestArgs": [
+    "06-best-practices"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true
 }

@@ -1,7 +1,6 @@
 data/
 .ipynb_checkpoints
 .bin
-**/*.pkl
 *.db
 
 *.parquet
@@ -11,6 +10,13 @@ data/
 .venv
 venv
 .idea
+**/*.pkl
+
 **/artifacts/
-**/.terraform/
 **/models/
+
+__pycache__/
+**.env
+**.terraform/
+**.terraform.lock*
+**terraform.tfstate*

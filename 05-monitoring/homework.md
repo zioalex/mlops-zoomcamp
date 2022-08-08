@@ -2,7 +2,7 @@
 
 > This homework is prepared by [Nakul Bajaj](https://github.com/Nakulbajaj101). Thank you Nakul!
 
-In this homework, we'll monitor the ride duration model deployed in batch mode. We will use green taxi data for this task. 
+In this homework, we'll monitor the ride duration model deployed in batch mode. We will use green taxi data for this task.
 Before we start the homework we want to set up few things and make sure data is available.
 
 We have provided with two models:
@@ -10,10 +10,10 @@ We have provided with two models:
 * one trained on 03-2021
 * another trained on both 03-2021 and 04-2021
 
-Both models are linear regression models. If you want to know how they are trained, check [homework/model_training.py](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/model_training.py). 
+Both models are linear regression models. If you want to know how they are trained, check [homework/model_training.py](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/model_training.py).
 
 Both models will be uploaded in the docker image, we will use `ENVIRONMENT` variables in the docker-compose file, to specify
-which one to use. 
+which one to use.
 
 There is a `requirements.txt` to setup your conda or virtual environment.
 You can create a datasets folder in the `homework` directory or modify location for Q3 to Q7
@@ -22,8 +22,8 @@ You can create a datasets folder in the `homework` directory or modify location 
 
 To download data from 03-2021 to 05-2021, run
 [`prepare.py`](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/prepare.py).
-If you create the datasets folder, then you don't have to modify this file, 
-else modify it to point to the location where you want to store the data. 
+If you create the datasets folder, then you don't have to modify this file,
+else modify it to point to the location where you want to store the data.
 
 If you get 403 errors, change it to S3 location or reach out in the channel,
 this issue has been addressed in the slack channel.
@@ -37,7 +37,7 @@ You'll find all the starter code in the [homework](https://github.com/DataTalksC
 
 ## Q1. Docker compose
 
-We'll start with the docker compose file in the homework directory. The file is ready to use and is in 
+We'll start with the docker compose file in the homework directory. The file is ready to use and is in
 [homework/docker-compose-homework.yml](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/docker-compose-homework.yml).
 
 Run docker compose. Once up and running, open the localhost for mongo.
@@ -52,10 +52,10 @@ What’s the message you get in browser at [http://localhost:27017](http://local
 
 ## Q2. Docker volume
 
-In the docker compose file we have specified the volume. We do it because we don't want to 
+In the docker compose file we have specified the volume. We do it because we don't want to
 lose the data when we restart the services.
 
-We want to know what is this volume, so we can keep it safe and not delete it. 
+We want to know what is this volume, so we can keep it safe and not delete it.
 
 What is the command to find the name of our volume?
 
@@ -76,8 +76,8 @@ Run this script to score 5000 random datapoints for period 2021-05.
 What is the last prediction by the current model?
 
 * 22.16
-* 15.74 
-* 9.93 
+* 15.74
+* 9.93
 * 27.24
 
 
@@ -101,7 +101,7 @@ How many model features have drifted based on the html report?
 * 0
 
 
-## Q5. Name of the test 
+## Q5. Name of the test
 
 What’s the stats test for location ids?
 
@@ -110,7 +110,7 @@ What’s the stats test for location ids?
 
 Suppose some of the features have drifted. We want to run the new model
 to observe how it performs and compare it to the previous model.
-To do this, we need to make few modifications. In the docker compose file, 
+To do this, we need to make few modifications. In the docker compose file,
 change two environment variables: `MODEL_FILE` and `MODEL_VERSION`, pointing
 to the other model and providing a new model version.
 
@@ -119,7 +119,7 @@ Once updated, restart the servers, so environment variables are updated.
 Similar to Q3, we will simulate the traffic with same data points, running
 the `send_data.py` file.
 
-Before we run this, we need to clean the mongo database. 
+Before we run this, we need to clean the mongo database.
 
 To do it, run [homework/prefect-monitoring/clean_mongo.py](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/prefect-monitoring/clean_mongo.py).
 
@@ -133,11 +133,11 @@ What is the last prediction made by the new model?
 
 ## Q7. Generate evidently report using Prefect with new model
 
-In this step we want to use the new reference data, which is a combination of 03-2021 and 04-2021. 
+In this step we want to use the new reference data, which is a combination of 03-2021 and 04-2021.
 This should be the reference dataset because it was used to
 train the `lin_reg_V2.bin` model.
 
-Modify lines 22 and 24 in `prefect_monitoring.py` script to point to new 
+Modify lines 22 and 24 in `prefect_monitoring.py` script to point to new
 data file and new model, then run the Prefect script.
 
 Which model feature detected drift when we run with the new model and new reference
@@ -156,14 +156,14 @@ Whats the length of the metrics for collection name "report" stored as a collect
 Use this jupyter notebook: [homework/prefect-monitoring/monitor_profile.ipynb](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/prefect-monitoring/monitor_profile.ipynb)
 
 * 2
-* 9 
+* 9
 * 5
 * NA (empty)
 
 
 ## Submit the results
 
-* The homework is optional and there's no form for submitting the results 
+* The homework is optional and there's no form for submitting the results
 * Its possible results may not match, but should be close
 
 
@@ -175,4 +175,3 @@ Use this jupyter notebook: [homework/prefect-monitoring/monitor_profile.ipynb](h
     * [Code - `monitor profile notebook`](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/05-monitoring/homework/prefect-monitoring/monitor_profile_solution.ipynb)
 
 * [Video](https://www.youtube.com/watch?v=uwGg6PE8sLg)
-

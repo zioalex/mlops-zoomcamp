@@ -3,10 +3,10 @@
 The goal of this project is to apply everything we learned
 in this course and build an end-to-end machine learning project.
 
-Remember that to pass the project, you must evaluate 3 peers. If you don't do that, your project can't be considered compelete.  
+Remember that to pass the project, you must evaluate 3 peers. If you don't do that, your project can't be considered compelete.
 
 
-### Submitting 
+### Submitting
 
 #### Project Cohort #1
 
@@ -42,7 +42,7 @@ Project feedback: TBA
 
 ### Problem statement
 
-For the project, we will ask you to build an end-to-end ML project. 
+For the project, we will ask you to build an end-to-end ML project.
 
 For that, you will need:
 
@@ -51,21 +51,21 @@ For that, you will need:
 * Create a model training pipeline
 * Deploy the model in batch, web service or streaming
 * Monitor the performance of your model
-* Follow the best practices 
+* Follow the best practices
 
 
-## Technologies 
+## Technologies
 
 You don't have to limit yourself to technologies covered in the course. You can use alternatives as well:
 
 * Cloud: AWS, GCP, Azure or others
-* Experiment tracking tools: MLFlow, Weights & Biases, ... 
+* Experiment tracking tools: MLFlow, Weights & Biases, ...
 * Workflow orchestration: Prefect, Airflow, Flyte, Kubeflow, Argo, ...
 * Monitoring: Evidently, WhyLabs/whylogs, ...
 * CI/CD: Github actions, Gitlab CI/CD, ...
 * Infrastructure as code (IaC): Terraform, Pulumi, Cloud Formation, ...
 
-If you use something that wasn't covered in the course, 
+If you use something that wasn't covered in the course,
 be sure to explain what the tool does.
 
 If you're not certain about some tools, ask in Slack.
@@ -77,7 +77,7 @@ If you're not certain about some tools, ask in Slack.
 
 * Problem description
     * 0 points: Problem is not described
-    * 1 point: Problem is described but shortly or not clearly 
+    * 1 point: Problem is described but shortly or not clearly
     * 2 points: Problem is well described and it's clear what the problem the project solves
 * Cloud
     * 0 points: Cloud is not used, things run only locally
@@ -90,7 +90,7 @@ If you're not certain about some tools, ask in Slack.
 * Workflow orchestration
     * 0 points: No workflow orchestration
     * 2 points: Basic workflow orchestration
-    * 4 points: Fully deployed workflow 
+    * 4 points: Fully deployed workflow
 * Model deployment
     * 0 points: Model is not deployed
     * 2 points: Model is deployed but only locally
@@ -110,6 +110,3 @@ If you're not certain about some tools, ask in Slack.
     * [ ] There's a Makefile (1 point)
     * [ ] There are pre-commit hooks (1 point)
     * [ ] There's a CI/CI pipeline (2 points)
-
-
-
