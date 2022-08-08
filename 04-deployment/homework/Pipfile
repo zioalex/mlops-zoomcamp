@@ -5,9 +5,10 @@ name = "pypi"
 
 [packages]
 scikit-learn = "==1.0.2"
+panda = "*"
+requests = "*"
 pandas = "*"
 pyarrow = "*"
-s3fs = "*"
 
 [dev-packages]
 
