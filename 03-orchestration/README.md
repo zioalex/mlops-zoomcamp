@@ -2,6 +2,7 @@
 
 **Note:** [`orchestration.py`](orchestration.py) is a ready final version. The rest of the files were worked on together during the video tutorials.
 
+**Note** With Prefect version [`2.0b8`](https://github.com/PrefectHQ/prefect/blob/orion/RELEASE-NOTES.md#20b8) or later `DeploymentSpec`'s are now just `Deployment`'s.
 
 ## 3.1 Negative engineering and workflow orchestration
 
@@ -46,7 +47,14 @@ Links:
 * [Instructions for Hosting Prefect Orion](https://discourse.prefect.io/t/hosting-an-orion-instance-on-a-cloud-vm/967)
 
 
-## 3.6 Homework
+## 3.6 MLOps Zoomcamp 3.6 - (Optional) Work queues and agents
+
+<a href="https://www.youtube.com/watch?v=oDSf0ThKsso&list=PL3MmuxUbc_hIUISrluw_A7wDSmfOhErJK">
+  <img src="images/thumbnail-3-06.jpg">
+</a>
+
+
+## 3.7 Homework
 
 More information here: [homework.md](homework.md)
 
@@ -56,7 +64,7 @@ More information here: [homework.md](homework.md)
 Did you take notes? Add them here:
 
 * [Week 3, Prefect Introduction and S3 Bucket configuration with Prefect by M. Ayoub C.](https://gist.github.com/Qfl3x/8dd69b8173f027b9468016c118f3b6a5)
-* [Notes from froukje](https://github.com/froukje/ml-ops-zoomcamp/blob/master/week03_Orchestration_and_ML_Pipelines/week03_orchestration.ipynb)
+* [Notes from froukje](https://github.com/froukje/ml-ops-zoomcamp/blob/master/03-orchestration/week03_orchestration.ipynb)
 * [Minimalist code notes from Anna V](https://github.com/annnvv/mlops_zoomcamp/blob/main/notes/module3_notes_prefect.md)
 * [Getting Started on Prefect 2.0 + Deploying worfklows for MLflow Staging by Ron Medina (Jupyter Book)](https://particle1331.github.io/inefficient-networks/notebooks/mlops/3-prefect/3-prefect.html)
 * Send a PR, add your notes above this line

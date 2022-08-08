@@ -1,7 +1,10 @@
+port 4200 Udp/tcp for Prefect
+
 # Download the needed files from:
     https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 
-# Pre-requisites
+
+# PreReq
 ## Start MLFLOW
     cd ~/github/mlops-zoomcamp/02-experiment-tracking
     mlflow ui --backend-store-uri sqlite:///mlflow.db --serve-artifacts --artifacts-destination ./artifacts
@@ -13,8 +16,7 @@
     ln -s ../02-experiment-tracking/models/ .
     ln -s ../02-experiment-tracking/mlflow.db
     ln -s ../02-experiment-tracking/mlruns/ .
-
-# Prepare Prefect    
+    
 ## Start the server config
     cd 03-orchestration/
     prefect config set PREFECT_ORION_UI_API_URL="http://localhost:4200/api"

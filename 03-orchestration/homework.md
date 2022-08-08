@@ -57,8 +57,8 @@ python homework.py
 We want to bring this to workflow orchestration to add observability around it. The `main` function will be converted to a `flow` and the other functions will be `tasks`. After adding all of the decorators, there is actually one task that you will need to call `.result()` for inside the `flow` to get it to work. Which task is this?
 
 * `read_data`
-* `prepare_features`
-* `train_model`
+* `prepare_features` 
+* `train_model` <-----
 * `run_model`
 
 Important: change all `print` statements to use the Prefect logger. Using the `print` statement will not appear in the Prefect UI. You have to call `get_run_logger` at the start of the task to use it.
@@ -119,6 +119,9 @@ The validation MSE is:
 * 12.037
 * 12.237
 
+
+The MSE of validation is: 10.673128169712989
+
 ## Q3. Saving the model and artifacts
 
 At the moment, we are not saving the model and vectorizer for future use. You don't need a new task for this, you can just add it inside the `flow`. The requirements for filenames to save it as were mentioned in the Motivation section. They are pasted again here:
@@ -136,10 +139,12 @@ We could do something like `sorted(model_list, reverse=False)[0]` to get the fil
 
 What is the file size of the `DictVectorizer` that we trained when the `date` is 2021-08-15?
 
-* 13,000 bytes 
+* 13,000 bytes <------
 * 23,000 bytes 
 * 33,000 bytes 
 * 43,000 bytes 
+
+317386 Jun 12 20:30 dv-2021-08-15.b
 
 You can bring up the Orion UI and see the work you've been doing. If you are using local Orion, you can start the server with:
 
@@ -161,7 +166,7 @@ What is the Cron expression to run a flow at 9 AM every 15th of the month?
 
 * `* * 15 9 0`
 * `9 15 * * *`
-* `0 9 15 * *`
+* `0 9 15 * *` <-----
 * `0 15 9 1 *`
 
 Hint: there are many Cron to English tools. Try looking for one to help you.
@@ -176,12 +181,11 @@ View the deployment in the UI. When first loading, we may not see that many flow
 How many flow runs are scheduled by Prefect in advance? You should not be counting manually. There is a number of upcoming runs on the top right of the dashboard.
 
 * 0
-* 3
+* 3 <------
 * 10
 * 25
 
-**Note:** Your answer may be off by 1. It's okay. Select the option closest to your answer.
-
+4 ???
 ## Q6. Creating a work-queue
 
 In order to run this flow, you will need an agent and a work queue. Because we scheduled our flow on every month, it won't really get picked up by an agent. For this exercise, create a work-queue from the UI and view it using the CLI. 
@@ -196,7 +200,7 @@ For example,
 What is the command to view the available work-queues?
 
 * `prefect work-queue inspect`
-* `prefect work-queue ls`
+* `prefect work-queue ls` <------
 * `prefect work-queue preview`
 * `prefect work-queue list`
 
@@ -215,4 +219,5 @@ The deadline for submitting is 13 June 2022 (Monday) 23:00 CEST. After that, the
 
 ## Solution
 
-After the deadline, we'll post the solution here
+* [Code - `homework_solution.py`](homework_solution.py)
+* [Video](https://www.youtube.com/watch?v=DfmRb7J-Wuw)
