@@ -12,6 +12,12 @@ s3fs = "*"
 mlflow = "*"
 scikit-learn = "==1.0.2"
 awscli = "*"
+prefect = "==2.0b5"
+alembic = "*"
+seaborn = "*"
+hyperopt = "*"
+xgboost = "*"
+fastparquet = "*"
 
 [dev-packages]
 pyarrow = "*"
