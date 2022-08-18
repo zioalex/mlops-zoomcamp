@@ -36,7 +36,7 @@ prefect_storage: prefect_client_side
 
 stop_prefect:
 	echo "Stop prefect"
-	pkill -f prefect
+	@-pkill -f prefect
 
 stop_mlflow:
 	echo "Stop Mlflow"

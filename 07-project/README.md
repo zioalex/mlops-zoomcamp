@@ -48,7 +48,7 @@ For that, you will need:
 
 * Select a dataset that you're interested in (see [datasets.md](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_7_project/datasets.md))
 * Train a model on that dataset tracking your experiments (ok)
-* Create a model training pipeline
+* Create a model training pipeline (added predict flow - deployment todo)
 * Deploy the model in batch, web service or streaming
 * Monitor the performance of your model
 * Follow the best practices
