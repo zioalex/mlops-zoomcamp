@@ -44,9 +44,34 @@ stop_mlflow:
 
 stop_all: stop_prefect stop_mlflow
 
-cleanup_mlflow_db: #stop_mlflow
+cleanup_mlflow_db: stop_mlflow
 	rm -Rf ./mlflow.db
 
 cleanup_prefect_db: stop_prefect
 	# prefect orion database reset
-	rm -Rf .prefect/*
+	rm -Rf .prefect/
+
+prefect_flow: prefect_client_sidec
+	python prefect_flow.py
+
+prefect_deployment:
+	prefect deployment create prefect_deploy.py
+
+mongo_db_flask:
+	(cd monitoring/p; docker-compose -f docker-compose.yml up --build)
+
+drop_alembic_table:
+	# When you got:
+	# alembic.util.exc.CommandError: Can't locate revision identified by '061c7e518b40'
+	# sqlite> SELECT * FROM alembic_version;
+	# bd07f7e963c5                                                                        
+	sqlite3 ~/.prefect/orion.db "DROP  TABLE alembic_version ;"
+	# or sqlite3 ~/.prefect/orion.db "UPDATE alembic_version SET version_num = 'bd07f7e963c5' WHERE version_num = '061c7e518b40';"
+	# or rm -Rf ~/.prefect/orion.db
+
+send_data: # send data to predcton service and save to MongoDB
+	(cd monirotng/prefect_monitoring; python send_data.py)
+
+prefect_monitoring:
+	# starting all with the pipenv in cd monirotng/prefect_monitoring
+	(cd monirotng/prefect_monitoring; python prefect_monitoring_project.py)

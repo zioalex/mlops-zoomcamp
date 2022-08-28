@@ -1,0 +1,39 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+panda = "*"
+pandas = "*"
+#sklearn = "==1.0.2"
+fsspec = "*"
+s3fs = "*"
+mlflow = "==1.27.0"
+scikit-learn = "==0.23"
+awscli = "*"
+prefect = "==2.0b5"
+alembic = "*"
+seaborn = "*"
+hyperopt = "==0.2.5"
+xgboost = "*"
+fastparquet = "*"
+plotly = "*"
+hpsklearn = "==0.0.3"
+numpy = "==1.21.4"
+reservoirpy = "==0.3.2"
+
+[dev-packages]
+pyarrow = "*"
+parquet = "*"
+#pytest = "*" #"==2.14.4"
+deepdiff = "*"
+panda = "*"
+black = "*"
+isort = "*"
+pre-commit = "*"
+pylint = "==2.14.4"
+terraform-local = "*"
+
+[requires]
+python_version = "3.9"

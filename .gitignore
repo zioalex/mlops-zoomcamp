@@ -1,4 +1,4 @@
-data/
+**data/
 .ipynb_checkpoints
 .bin
 *.db
@@ -20,4 +20,4 @@ __pycache__/
 **.terraform/
 **.terraform.lock*
 **terraform.tfstate*
-**/.vscode/*
+**.vscode/*

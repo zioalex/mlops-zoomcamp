@@ -17,7 +17,10 @@ import mlflow
 from prefect import flow, task, get_run_logger
 from prefect.task_runners import SequentialTaskRunner
 from time import strftime,gmtime
-
+from prefect.deployments import DeploymentSpec
+from prefect.orion.schemas.schedules import IntervalSchedule
+from prefect.flow_runners import SubprocessFlowRunner
+from datetime import timedelta
 
 @task
 def read_dataframe(filename='./data/RUStoWorldTrade.csv'):
@@ -257,4 +260,11 @@ def main(date=None):
     # with open('models/dv-' + date + '.b', 'wb') as f_out:
     #     pickle.dump(dv, f_out)
 
-main()
+# main()
+DeploymentSpec(
+    flow=main,
+    name="model_training",
+    schedule=IntervalSchedule(interval=timedelta(minutes=5)),
+    flow_runner=SubprocessFlowRunner(),
+    tags=["ml"]
+)
