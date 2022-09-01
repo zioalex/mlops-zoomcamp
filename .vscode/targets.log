@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Aug  8 20:57:16 2022
+# Make data base, printed on Sat Aug 27 14:34:04 2022
 
 # Variables
 
@@ -45,7 +45,7 @@ VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupp
 # environment
 _ = /usr/share/code/code
 # environment
-JOURNAL_STREAM = 9:92901
+JOURNAL_STREAM = 9:73595
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile
@@ -65,7 +65,7 @@ XDG_DATA_DIRS = /usr/share/ubuntu:/home/asurace/.local/share/flatpak/exports/sha
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1002/bus
 # environment
-MANAGERPID = 8765
+MANAGERPID = 7387
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -75,13 +75,13 @@ VSCODE_CWD = /home/asurace
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /usr/local/cuda-11.0/bin:/home/asurace/anaconda3/bin:/home/asurace/anaconda3/condabin:/home/asurace/.local/bin:/home/asurace/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/asurace/bin:/home/asurace/.local/share/JetBrains/Toolbox/scripts:/home/asurace/bin:/home/asurace/.local/share/JetBrains/Toolbox/scripts:/home/asurace/.cache/cloud-code/installer/google-cloud-sdk/bin:/home/asurace/google-cloud-sdk/bin
+PATH = /home/asurace/.cache/cloud-code/installer/google-cloud-sdk/bin:/usr/local/cuda-11.0/bin:/home/asurace/anaconda3/bin:/home/asurace/anaconda3/condabin:/home/asurace/.local/bin:/home/asurace/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/asurace/bin:/home/asurace/.local/share/JetBrains/Toolbox/scripts:/home/asurace/bin:/home/asurace/.local/share/JetBrains/Toolbox/scripts:/home/asurace/google-cloud-sdk/bin
 # environment
 GPG_AGENT_INFO = /run/user/1002/gnupg/S.gpg-agent:0:1
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-SESSION_MANAGER = local/bigone:@/tmp/.ICE-unix/9005,unix/bigone:/tmp/.ICE-unix/9005
+SESSION_MANAGER = local/bigone:@/tmp/.ICE-unix/7632,unix/bigone:/tmp/.ICE-unix/7632
 # environment
 XDG_RUNTIME_DIR = /run/user/1002
 # environment
@@ -91,7 +91,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 0c34de6e0f5c430ebc2c04a9952eb8fc
+INVOCATION_ID = bc9dc07845b84a82993bfbbaae38421d
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -103,7 +103,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1002/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 174921
+GIO_LAUNCHED_DESKTOP_FILE_PID = 10957
 # automatic
 %F = $(notdir $%)
 # environment
@@ -111,13 +111,13 @@ DISPLAY = :1
 # environment
 CONDA_EXE = /home/asurace/anaconda3/bin/conda
 # environment
-CLOUDSDK_METRICS_ENVIRONMENT_VERSION = 1.19.0
+CLOUDSDK_METRICS_ENVIRONMENT_VERSION = 1.20.1
 # environment
 PWD = /home/asurace/github/mlops-zoomcamp
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 8969
+SSH_AGENT_PID = 7596
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -131,11 +131,11 @@ LD_LIBRARY_PATH = /usr/local/cuda-11.0/lib64:/usr/local/cuda-11.0/targets/x86_64
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
-VSCODE_CODE_CACHE_PATH = /home/asurace/.config/Code/CachedData/da76f93349a72022ca4670c1b84860304616aaa2
+VSCODE_CODE_CACHE_PATH = /home/asurace/.config/Code/CachedData/e4503b30fc78200f846c62cf8091b76ff5547662
 # environment
 LOGNAME = asurace
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 CONDA_PROMPT_MODIFIER = (base) 
 # automatic
@@ -183,7 +183,7 @@ MAKE_COMMAND := make
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /run/user/1002/vscode-8a9ce7ae-1.70.0-main.sock
+VSCODE_IPC_HOOK = /run/user/1002/vscode-8a9ce7ae-1.70.2-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -235,7 +235,7 @@ LC_ADDRESS = de_DE.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 174921
+VSCODE_PID = 10957
 # environment
 _CE_CONDA = 
 # variable set hash-table stats:
@@ -247,9 +247,9 @@ _CE_CONDA =
 
 # Directories
 
-# . (device 64768, inode 19194019): 23 files, no impossibilities.
+# . (device 64768, inode 19194019): 26 files, no impossibilities.
 
-# 23 files, no impossibilities in 1 directories.
+# 26 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -279,6 +279,9 @@ makefile:
 #  Failed to be updated.
 
 # Not a target:
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -286,9 +289,6 @@ makefile:
 
 # Not a target:
 GNUmakefile:
- 
-make: *** No rule to make target 'all'.  Stop.
-
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
@@ -302,12 +302,12 @@ make: *** No rule to make target 'all'.  Stop.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 31 / storage = 363 B / avg = 11 B
-# current buf: size = 8162 B / used = 363 B / count = 31 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 34 / storage = 424 B / avg = 12 B
+# current buf: size = 8162 B / used = 424 B / count = 34 / avg = 12 B
 
-# strcache performance: lookups = 34 / hit rate = 8%
+# strcache performance: lookups = 37 / hit rate = 8%
 # hash-table stats:
-# Load=31/8192=0%, Rehash=0, Collisions=1/34=3%
-# Finished Make data base on Mon Aug  8 20:57:16 2022
+# Load=34/8192=0%, Rehash=0, Collisions=1/37=3%
+# Finished Make data base on Sat Aug 27 14:34:04 2022
 
  
